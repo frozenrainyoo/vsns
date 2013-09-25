@@ -3,25 +3,28 @@ vsns
 
 : Dev.Study - Official VSNS Repository since 2013.9.1
 
+
 #### 2013년 9월 25일 => rack-cors 설정변경함.
 
-* 레일스 어플리케이션의 DELETE, PUT 메소드를 Client-side application에서도 사용할 수 있도록 rails-cors 설정의 :methods 옵션 배열에 :delete, :put을 추가하였습다. 
+* 레일스 어플리케이션의 DELETE, PUT, PATCH 메소드를 Client-side application에서도 사용할 수 있도록 rails-cors 설정의 :methods 옵션 배열에 :delete, :put, :patch 를 추가하였습다. 
 
-  ```
-  config.middleware.use Rack::Cors do
-    allow do
-      origins '*'
-      resource '*', :headers => :any, :methods => [:get, :post, :delete, :put, :options]
-    end
-  end
 ```
+config.middleware.use Rack::Cors do
+  allow do
+    origins '*'
+    resource '*', :headers => :any, :methods => [:get, :post, :delete, :put, :patch, :options]
+  end
+end
+```
+
+***
 
 #### 2013년 9월 18일 => rack-cors 젬추가함
 
 * Gemfile 추가
-  
+
   ```
-  gem 'rack-cors', :require => 'rack/cors' by hschoi
+  gem 'rack-cors', :require => 'rack/cors' // by hschoi
   ```
 
 * config/application.rb
@@ -34,6 +37,8 @@ vsns
     end
   end
   ```  
+
+***
 
 #### 2013년 9월 12일 => 나머지 turbolinks 문제해결 함. hschoi
 
